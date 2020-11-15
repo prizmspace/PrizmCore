@@ -70,8 +70,6 @@ public final class GetConstants extends APIServlet.APIRequestHandler {
                         subtypeJSON.put("name", transactionType.getName());
                         subtypeJSON.put("canHaveRecipient", transactionType.canHaveRecipient());
                         subtypeJSON.put("mustHaveRecipient", transactionType.mustHaveRecipient());
-                        subtypeJSON.put("isPhasingSafe", transactionType.isPhasingSafe());
-                        subtypeJSON.put("isPhasable", transactionType.isPhasable());
                         subtypeJSON.put("type", type);
                         subtypeJSON.put("subtype", subtype);
                         subtypesJSON.put(subtype, subtypeJSON);

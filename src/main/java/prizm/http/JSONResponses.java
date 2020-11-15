@@ -278,7 +278,7 @@ public final class JSONResponses {
     static {
         JSONObject response = new JSONObject();
         response.put("errorCode", 10);
-        response.put("errorDescription", "Hashes don't match. You should notify Jeff Garzik.");
+        response.put("errorDescription", "Hashes don't match.");
         HASHES_MISMATCH = JSON.prepare(response);
     }
 

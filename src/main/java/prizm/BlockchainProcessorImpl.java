@@ -70,91 +70,20 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
             : new byte[]{
                 -29, -80, -60, 66, -104, -4, 28, 20, -102, -5, -12, -56, -103, 111, -71, 36, 39, -82, 65, -28, 100, -101, -109, 76, -92, -107, -103, 27, 120, 82, -72, 85
             };
-    private static final byte[] CHECKSUM_NQT_BLOCK = Constants.isTestnet
+    private static final byte[] CHECKSUM_1 = Constants.isTestnet
             ? new byte[]{
                 0
             }
             : new byte[]{
-                -29, -80, -60, 66, -104, -4, 28, 20, -102, -5, -12, -56, -103, 111, -71, 36, 39, -82, 65, -28, 100, -101, -109, 76, -92, -107, -103, 27, 120, 82, -72, 85
+                -51, -47, -127, -36, 65, -8, 66, -9, -89, 24, 16, -109, 36, 63, 76, -75, 3, -101, 30, -23, 53, -119, -39, -56, 99, 100, -70, 106, -87, 99, 110, -65
             };
-    private static final byte[] CHECKSUM_MONETARY_SYSTEM_BLOCK = Constants.isTestnet
+    private static final byte[] CHECKSUM_2 = Constants.isTestnet
             ? new byte[]{
                 0
             }
             : new byte[]{
-                91, -56, 10, 24, 104, -116, -99, -107, 10, 69, 104, 63, 69, 6, 95, -17, 102, 54, 33, -52, 115, 43, -64, -92, 79, -46, 112, 102, -28, 119, -34, -119
+                99, 44, -128, 91, 57, -88, -30, -9, 103, -46, 73, 100, 76, 12, -21, 40, -109, 83, 101, 31, -34, 4, 117, -13, -108, -56, 0, -19, -52, 105, -10, -68
             };
-    private static final byte[] CHECKSUM_PHASING_BLOCK = Constants.isTestnet
-            ? new byte[]{
-                0
-            }
-            : new byte[]{
-                -37, 124, -86, -66, -4, -98, -77, 57, -84, -18, -41, 57, -82, 110, 97, 20, -30, -87, -59, 55, -24, 71, 69, -29, -77, 89, 28, -128, 77, -36, 31, 30
-            };
-    private static final byte[] CHECKSUM_16 = Constants.isTestnet
-            ? new byte[]{
-                0
-            }
-            : new byte[]{
-                -40, -12, -3, -100, -98, 115, 87, -78, 28, 38, 62, 53, 103, 11, -55, 97, 45, -1, -79, -8, -128, -15, 10, -13, 94, 95, -125, -106, -34, -67, 15, 76
-            };
-    private static final byte[] CHECKSUM_17 = Constants.isTestnet
-            ? new byte[]{
-                0
-            }
-            : new byte[]{
-                49, 0, -22, -25, 103, -21, -3, -112, 106, -97, 79, -46, 23, -119, -53, 66, -89, 40, 2, -75, 102, 34, 16, 44, 111, 113, 69, -102, -62, 16, -127, 87
-            };
-    private static final byte[] CHECKSUM_18 = Constants.isTestnet
-            ? new byte[]{
-                0
-            }
-            : new byte[]{
-                32, 60, 29, -101, -42, 99, -128, 69, -32, -22, -104, -99, -35, -89, 106, -76, 70, -34, -73, 42, -106, 102, 111, -119, -41, 60, 55, -101, 57, -5, 107, 20
-            };
-    private static final byte[] CHECKSUM_19 = Constants.isTestnet
-            ? new byte[]{
-                0
-            }
-            : new byte[]{
-                32, 60, 29, -101, -42, 99, -128, 69, -32, -22, -104, -99, -35, -89, 106, -76, 70, -34, -73, 42, -106, 102, 111, -119, -41, 60, 55, -101, 57, -5, 107, 20
-            };
-    private static final byte[] CHECKSUM_20 = Constants.isTestnet
-            ? new byte[] {
-                0
-            }
-            :
-            new byte[] {
-                    -31, 16, 18, -38, -86, 3, -111, -9, 3, -32, 87, 8, 70, 35, -33, -56, 91,
-                    -72, -55, -96, -120, -127, -116, 2, -21, -89, -7, 56, -114, -66, 72, -49
-            };
-    private static final byte[] CHECKSUM_21 = Constants.isTestnet
-            ? new byte[] {
-                    0
-            }
-            :
-            new byte[] {
-                    -26, -121, -115, -116, -62, -120, -99, -74, -52, -39, 9, 52, 20, 92, -42, 115,
-                    19, -67, 7, 51, 4, -100, -41, 41, 57, -102, 19, -128, -109, -52, -68, -15
-            };
-    private static final byte[] CHECKSUM_22 = Constants.isTestnet
-            ? new byte[] {
-                    0
-            }
-            :
-            new byte[] {
-                    -77, 16, -52, 88, -21, -67, -119, 121, 121, 120, -70, 88, 44, -99, -9,
-                    -42, 48, -77, 28, 40, 106, -48, 13, 30, -22, -122, 35, 22, 29, 2, -93, 94
-            };
-    private static final byte[] CHECKSUM_23 = Constants.isTestnet
-            ? new byte[] {
-                    0
-            }
-            :
-            new byte[] {
-                    29, -13, -77, -107, -64, -81, -70, -19, -77, 11, 20, 119, -44, -61, -91, 51,
-                    83, 38, 127, 123, 103, 92, 7, 14, -108, 91, -70, -66, -48, -95, -110, -71
-    };
 
 
     private static final BlockchainProcessorImpl instance = new BlockchainProcessorImpl();
@@ -214,6 +143,17 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
                 while (true) {
                     if (!getMoreBlocks) {
                         return;
+                    }
+                    if (Constants.limitBlockchainHeight) {
+                        if (blockchain.getHeight() >= Constants.maxBlockchainHeight) {
+                            getMoreBlocks = false;
+                            isDownloading = false;
+                            if (blockchain.getHeight() > Constants.maxBlockchainHeight)
+                                Logger.logErrorMessage("Blockchain height "+blockchain.getHeight()+" is higher then the prizm.maxBlockchainHeight "+Constants.maxBlockchainHeight+" in configuration file. Blockchain download  stopped.");
+                            else
+                                Logger.logWarningMessage("Reached max blockchain height: " + Constants.maxBlockchainHeight);
+                            return;
+                        }
                     }
                     int chainHeight = blockchain.getHeight();
                     downloadPeer();
@@ -290,6 +230,7 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
                 if (chainBlockIds.size() < 2 || !peerHasMore) {
                     return;
                 }
+
 
                 final long commonBlockId = chainBlockIds.get(0);
                 final Block commonBlock = blockchain.getBlock(commonBlockId);
@@ -593,18 +534,9 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
                         break;
                     }
                     BlockImpl block = peerBlock.getBlock();
-//stable trx                    
-                    block.getTransactions().forEach((transaction) -> {
-                        if (transaction.getType().getType() > 1 && BlockchainImpl.getInstance().getHeight() > Constants.CONTROL_TRX_TO_ORDINARY) {
-                            peerBlock.getPeer().blacklist("not valid block");
-                            popOffTo(BlockchainImpl.getInstance().getHeight() - 1);
-                            return;
-                        }
-                    });   
-//stable trx                    
                     if (blockchain.getLastBlock().getId() == block.getPreviousBlockId()) {
                         try {
-                            // Блоки от пиров.
+                            // Peer blocks
                             pushBlock(block);
                         } catch (BlockNotAcceptedException e) {
                             peerBlock.getPeer().blacklist(e);
@@ -1006,6 +938,10 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
             }
         }
     }
+    
+    public static String fromByteArray(byte[] array) {
+        return Arrays.toString(array).replaceAll("\\[", "\\{").replaceAll("\\]", "\\}");
+    }    
 
     private final Listener<Block> checksumListener = block -> {
 //otlov cheksum
@@ -1018,6 +954,14 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
        if (block.getHeight() == Constants.TRANSPARENT_FORGING_BLOCK) {
             if (! verifyChecksum(CHECKSUM_TRANSPARENT_FORGING, 0, Constants.TRANSPARENT_FORGING_BLOCK)) {
                 popOffTo(0);
+            }
+       } else if (block.getHeight() == Constants.CHECKSUM_BLOCK_1) {
+            if (! verifyChecksum(CHECKSUM_1, Constants.CHECKSUM_BLOCK_0, Constants.CHECKSUM_BLOCK_1)) {
+                popOffTo(Constants.CHECKSUM_BLOCK_0);
+            }
+       } else if (block.getHeight() == Constants.CHECKSUM_BLOCK_2) {
+            if (! verifyChecksum(CHECKSUM_2, Constants.CHECKSUM_BLOCK_1, Constants.CHECKSUM_BLOCK_2)) {
+                popOffTo(Constants.CHECKSUM_BLOCK_1);
             }
         }  // TODO add checksums later
 //        else if (block.getHeight() == Constants.CHECKSUM_BLOCK_16) {
@@ -1210,18 +1154,9 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
     public void processPeerBlock(JSONObject request) throws PrizmException {
         BlockImpl block = BlockImpl.parseBlock(request);
         if (block.getTransactions().size() > Constants.MAX_NUMBER_OF_TRANSACTIONS) {
-//System.out.println("blprimpl 1242 processPeerBlock trx > 800");
+            Logger.logWarningMessage("Refused block " + block.getId() + ", because it contains too many transactions");
             return;
         }
-// stable trx1        
-        block.getTransactions().forEach((transaction) -> {
-            if (transaction.getType().getType() > 1 && BlockchainImpl.getInstance().getHeight() > Constants.CONTROL_TRX_TO_ORDINARY) {
-                System.out.println("process block not accepted trx not valid type");
-                popOffTo(BlockchainImpl.getInstance().getHeight() - 1);
-                return;
-            }
-        });
-// stable trx1
         BlockImpl lastBlock = blockchain.getLastBlock();
         if (block.getPreviousBlockId() == lastBlock.getId()) {
             pushBlock(block);
@@ -1461,15 +1396,10 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
     }
 
     private void pushBlock(final BlockImpl block) throws BlockNotAcceptedException {
-// stable trx2        
-        block.getTransactions().forEach((transaction) -> {
-            if (transaction.getType().getType() > 1 && BlockchainImpl.getInstance().getHeight() > Constants.CONTROL_TRX_TO_ORDINARY) {
-                System.out.println("push block not accepted - invalid transaction type!");
-                popOffTo(BlockchainImpl.getInstance().getHeight() - 1);
-                return;
-            }
-        });
-// stable trx2        
+
+        if (Constants.limitBlockchainHeight && Constants.maxBlockchainHeight == blockchain.getHeight())
+            throw new BlockNotAcceptedException("Reached max allowed height " + blockchain.getHeight(), block);
+
         int curTime = Prizm.getEpochTime();
         
         blockchain.writeLock();
@@ -1705,6 +1635,11 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
             try {
                 BlockImpl block = blockchain.getLastBlock();
                 block.loadTransactions();
+
+                Logger.logDebugMessage("Rollback from PARA block " + block.getStringId() + " at height " + block.getHeight()
+                        + " to " + commonBlock.getStringId() + " at " + commonBlock.getHeight());
+                Prizm.para().rollbackToBlock(commonBlock.getHeight());
+
                 Logger.logDebugMessage("Rollback from block " + block.getStringId() + " at height " + block.getHeight()
                         + " to " + commonBlock.getStringId() + " at " + commonBlock.getHeight());
                 while (block.getId() != commonBlock.getId() && block.getId() != Genesis.GENESIS_BLOCK_ID) {
@@ -1714,9 +1649,6 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
                 for (DerivedDbTable table : derivedTables) {
                     table.rollback(commonBlock.getHeight());
                 }
-Logger.logDebugMessage("Rollback from PARA block " + block.getStringId() + " at height " + block.getHeight()
-                        + " to " + commonBlock.getStringId() + " at " + commonBlock.getHeight());
-Prizm.para().rollbackToBlock(commonBlock.getHeight());                
                 Db.db.clearCache();
                 Db.db.commitTransaction();
             } catch (RuntimeException e) {
@@ -1725,8 +1657,8 @@ Prizm.para().rollbackToBlock(commonBlock.getHeight());
                 BlockImpl lastBlock = BlockDb.findLastBlock();
                 blockchain.setLastBlock(lastBlock);
                 popOffTo(lastBlock);
-Logger.logDebugMessage("Rollback from PARA of popOff block " + lastBlock.getHeight());                
-Prizm.para().rollbackToBlock(lastBlock.getHeight());                
+                Logger.logDebugMessage("Rollback from PARA of popOff block " + lastBlock.getHeight());
+                Prizm.para().rollbackToBlock(lastBlock.getHeight());
                 throw e;
             }
             return poppedOffBlocks;
@@ -1740,6 +1672,7 @@ Prizm.para().rollbackToBlock(lastBlock.getHeight());
         if (block.getId() == Genesis.GENESIS_BLOCK_ID) {
             throw new RuntimeException("Cannot pop off genesis block");
         }
+        Prizm.para().popLastBlock();
         BlockImpl previousBlock = BlockDb.deleteBlocksFrom(block.getId());
         previousBlock.loadTransactions();
         blockchain.setLastBlock(previousBlock);
@@ -1791,7 +1724,7 @@ Prizm.para().rollbackToBlock(lastBlock.getHeight());
             Logger.logMessage("Checksum calculated:\n" + Arrays.toString(checksum));
             return true;
         } else if (!Arrays.equals(checksum, validChecksum)) {
-            Logger.logErrorMessage("Checksum failed at block " + blockchain.getHeight() + ": " + Arrays.toString(checksum));
+            Logger.logErrorMessage("Checksum failed at block " + blockchain.getHeight() + " : " + fromByteArray(checksum));
             return false;
         } else {
             Logger.logMessage("Checksum passed at block " + blockchain.getHeight());
@@ -2135,19 +2068,23 @@ Prizm.para().rollbackToBlock(lastBlock.getHeight());
             JSONObject infoJSprism = new JSONObject();
             infoJSprism.put(Constants.IN_BLOCK_ID, payout.getBlockID());
             infoJSprism.put(Constants.IN_BLOCK_HEIGHT, payout.getHeight());
+            if (payout.getParaTax() > 0l) {
+                infoJSprism.put(Constants.PARA_TAX, payout.getParaTax());
+            }
             if (payout.getTxID() != null) {
                 infoJSprism.put(Constants.IN_TRANSACT_ID, payout.getTxID());
             }
             infoJSprism.put(Constants.RANDOM, Math.random());
             Appendix.Message infogen = new Appendix.Message(infoJSprism.toString(), true);
             try {
-                final TransactionImpl transactionX = new TransactionImpl.BuilderImpl((byte) 1, Genesis.CREATOR_PUBLIC_KEY,
-                        payout.getAmount(), 0, (short) 720,
-                        Attachment.ORDINARY_PAYMENT)
-                        .recipientId(payout.getToID())
-                        .appendix(infogen)
-                        .timestamp(timestamp)
-                        .build(Constants.GENESIS_SECRET_PHRASE);
+                if (payout.getAmount() > 0l) {
+                    final TransactionImpl transactionX = new TransactionImpl.BuilderImpl((byte) 1, Genesis.CREATOR_PUBLIC_KEY,
+                            payout.getAmount(), 0, (short) 720,
+                            Attachment.ORDINARY_PAYMENT)
+                            .recipientId(payout.getToID())
+                            .appendix(infogen)
+                            .timestamp(timestamp)
+                            .build(Constants.GENESIS_SECRET_PHRASE);
 
 //                final Transaction transaction0 = Prizm.newTransactionBuilder(Genesis.CREATOR_PUBLIC_KEY,
 //                        payout.getAmount(), 0, (short) 720, 
@@ -2155,8 +2092,9 @@ Prizm.para().rollbackToBlock(lastBlock.getHeight());
 //                        .recipientId(payout.getToID())
 //                        .appendix(infogen)
 //                        .build(Constants.GENESIS_SECRET_PHRASE);
-                transactions.add(transactionX);
+                    transactions.add(transactionX);
 //                Prizm.getTransactionProcessor().broadcast(transaction0);
+                }
             } catch (PrizmException.ValidationException ex) {
 //                System.out.println("PrGenTrans EX: "+ex.toString());
                 throw ex;

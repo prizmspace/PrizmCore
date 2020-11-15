@@ -37,14 +37,6 @@ public final class DeleteAlias extends CreateTransaction {
 
     @Override
     protected JSONStreamAware processRequest(final HttpServletRequest req) throws PrizmException {
-        final Alias alias = ParameterParser.getAlias(req);
-        final Account owner = ParameterParser.getSenderAccount(req);
-
-        if (alias.getAccountId() != owner.getId()) {
-            return INCORRECT_ALIAS_OWNER;
-        }
-
-        final Attachment attachment = new Attachment.MessagingAliasDelete(alias.getAliasName());
-        return createTransaction(req, owner, attachment);
+        return JSONResponses.FEATURE_NOT_AVAILABLE;
     }
 }

@@ -147,17 +147,21 @@ public class PrizmTree {
         return null;
     }
 
-    public static List<AccountMinimal> getDirectChildrenOf (long accountId, int internalParentID, int internalIDStart) throws SQLException {
+    public static List<AccountMinimal> getDirectChildrenOf (long accountId, int internalParentID, int internalIDStart, boolean limit, int startIndex, boolean orderByAmount) throws SQLException {
         List<AccountMinimal> children = new ArrayList<>();
         try {
-            try (PreparedStatement statement = Prizm.para().getConnection().prepareStatement("select id,balance,amount from para where parent_id=?")) {
+            try (PreparedStatement statement = Prizm.para().getConnection().prepareStatement("select id,balance,amount from para where parent_id=?"  + (orderByAmount?" order by amount desc":"") + (limit?" limit 100"+(startIndex>0?" offset ?":""):"") )) {
                 statement.setLong(1, accountId);
+                if (limit && startIndex > 0)
+                    statement.setInt(2, startIndex);
                 try (ResultSet rs = statement.executeQuery()) {
                     while (rs.next()) {
                         final long id = rs.getLong(1);
                         final AccountMinimal child;
                         try {
                             child = new AccountMinimal(rs.getLong(1), internalIDStart++, internalParentID, rs.getLong(2), rs.getLong(3));
+                            if (child.reedSolomonMinimal().equalsIgnoreCase("PPPP-PPPP-PPPP-PPPPP"))
+                                continue;
                         } catch (Exception e) {
                             Logger.logErrorMessage(e.getMessage(), e);
                             continue;
@@ -170,6 +174,23 @@ public class PrizmTree {
             Logger.logErrorMessage("Failed to get children of " + accountId, e);
         }
         return children;
+    }
+
+    public static int getChildCountOf (long accountId) {
+        try {
+            try (PreparedStatement statement = Prizm.para().getConnection().prepareStatement("select count(*) from para where parent_id=?")) {
+                statement.setLong(1, accountId);
+                try (ResultSet rs = statement.executeQuery()) {
+                    while (rs.next()) {
+                        final int count = rs.getInt(1);
+                        return count;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            Logger.logErrorMessage("Failed to get childCount of " + accountId, e);
+        }
+        return 0;
     }
 
     // Format accounts list in CSV-style to response in JSON array
@@ -210,6 +231,17 @@ public class PrizmTree {
         @Override
         public String toString () { // Replace comma inside name and description to save CSV data structure
             return internalID + com + parentInternalID + com + reedSolomonMinimal() + com + balance + com + amount + com + forged + com + name.replaceAll(",", "%2C") + com + description.replaceAll(",", "%2C");
+        }
+        public JSONObject toJSONObject () {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("accountRS", Convert.rsAccount(id));
+            jsonObject.put("balanceNQT", balance);
+            jsonObject.put("amountNQT", amount);
+            jsonObject.put("name", name.replaceAll(",", "%2C"));
+            jsonObject.put("description", description.replaceAll(",", "%2C"));
+            jsonObject.put("childCount", getChildCountOf(id));
+            jsonObject.put("forging", forged>0);
+            return jsonObject;
         }
         public String reedSolomonMinimal () {
             return Convert.rsAccount(id).substring(6);

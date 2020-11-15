@@ -2,6 +2,7 @@ package prizm.http;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONStreamAware;
+import prizm.Account;
 import prizm.Prizm;
 import prizm.PrizmException;
 import prizm.util.Convert;
@@ -23,7 +24,7 @@ public class GetParent extends PrizmTree.APIHierarchyRequestHandler {
 
         long account = ParameterParser.getAccountId(request, true);
 
-        if (account == 0L)
+        if (account == 0L || Account.getAccount(account) == null)
             return PrizmTree.createErrorResponse("Invalid \"account\"!", 9999);
 
         JSONObject response = new JSONObject();

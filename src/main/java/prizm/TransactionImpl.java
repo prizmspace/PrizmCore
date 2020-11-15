@@ -953,6 +953,18 @@ final class TransactionImpl implements Transaction {
                     + ", deadline: " + deadline + ", fee: " + feeNQT + ", amount: " + amountNQT);
         }
 
+        // No transaction can avoid validation
+        if (currentHeight > Constants.CONTROL_TRX_TO_ORDINARY) {
+            if (getType().getType() > 1) {
+                throw new PrizmException.NotCurrentlyValidException("Invalid transaction type:" + getType().getName());
+            }
+            if (currentHeight > Constants.LAST_ALIASES_BLOCK) {
+                if (getType().getType() == 1 && (getType().getSubtype() == 1 || getType().getSubtype() == 8)) { // 1.1 Alias Assignment 1.8 Alias Delete
+                    throw new PrizmException.NotCurrentlyValidException("Invalid transaction subtype " + type.getSubtype() + " for transaction of type " + type.getName());
+                }
+            }
+        }
+
         if (referencedTransactionFullHash != null && referencedTransactionFullHash.length != 32) {
             throw new PrizmException.NotValidException("Invalid referenced transaction full hash " + Convert.toHexString(referencedTransactionFullHash));
         }
@@ -973,7 +985,6 @@ final class TransactionImpl implements Transaction {
             }
         }
 
-        boolean validatingAtFinish = getSignature() != null;
         for (Appendix.AbstractAppendix appendage : appendages) {
             appendage.loadPrunable(this);
             if (!appendage.verifyVersion(this.version)) {

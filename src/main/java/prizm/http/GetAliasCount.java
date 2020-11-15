@@ -33,10 +33,7 @@ public final class GetAliasCount extends APIServlet.APIRequestHandler {
 
     @Override
     protected JSONStreamAware processRequest(HttpServletRequest req) throws PrizmException {
-        final long accountId = ParameterParser.getAccountId(req, true);
-        JSONObject response = new JSONObject();
-        response.put("numberOfAliases", Alias.getAccountAliasCount(accountId));
-        return response;
+        return JSONResponses.FEATURE_NOT_AVAILABLE;
     }
 
 }

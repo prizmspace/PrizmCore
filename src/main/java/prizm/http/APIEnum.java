@@ -46,6 +46,7 @@ public enum APIEnum {
     GET_MOST_LOYAL_PARENT("getMostLoyalParent", GetMostLoyalParent.instance),
     GET_PARENT("getParent", GetParent.instance),
     IS_CHILD_OF("isChildOf", IsChildOf.instance),
+    GET_ACCOUNT_CHILDREN("getAccountChildren", GetAccountChildren.instance),
     GET_ACCOUNT_ID("getAccountId", GetAccountId.instance),
     GET_ACCOUNT_LEDGER("getAccountLedger", GetAccountLedger.instance),
     GET_ACCOUNT_LEDGER_ENTRY("getAccountLedgerEntry", GetAccountLedgerEntry.instance),

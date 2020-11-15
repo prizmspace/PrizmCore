@@ -19,5 +19,7 @@ public interface ParaMining {
     public long getFixedFee(long amount);
     public void rollbackToBlock(int blockHeight);
     public void shutdown();
+    public void init();
+    public void popLastBlock();
     public Connection getConnection ();
 }

@@ -76,6 +76,9 @@ public final class JSONData {
         json.put("amount", String.valueOf(metrics.getAmount()));
         json.put("last", String.valueOf(metrics.getBeforeStamp()));
         json.put("multiplier", String.valueOf(metrics.getMultiplier()));
+        if (metrics.getParaTax()>0) {
+            json.put("paratax", String.valueOf(metrics.getParaTax()));
+        }
         return json;
     }
 

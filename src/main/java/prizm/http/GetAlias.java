@@ -31,8 +31,7 @@ public final class GetAlias extends APIServlet.APIRequestHandler {
 
     @Override
     protected JSONStreamAware processRequest(HttpServletRequest req) throws ParameterException {
-        Alias alias = ParameterParser.getAlias(req);
-        return JSONData.alias(alias);
+        return JSONResponses.FEATURE_NOT_AVAILABLE;
     }
 
 }

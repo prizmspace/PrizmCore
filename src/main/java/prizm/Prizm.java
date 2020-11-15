@@ -57,7 +57,7 @@ public final class Prizm {
         return paraMining;
     }
 
-    public static final String VERSION = "1.9.17";
+    public static final String VERSION = "1.10.0";
     public static final String APPLICATION = "PZM";
 
     private static volatile Time time = new Time.EpochTime();
@@ -335,6 +335,7 @@ public final class Prizm {
         try {
             Runtime.getRuntime().addShutdownHook(new Thread(Prizm::shutdown));
             init();
+            paraMining.init();
         } catch (Throwable t) {
             System.out.println("Fatal error: " + t.toString());
             t.printStackTrace();

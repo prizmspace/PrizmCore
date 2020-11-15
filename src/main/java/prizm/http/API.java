@@ -18,6 +18,7 @@ package prizm.http;
 
 import prizm.Constants;
 import prizm.Prizm;
+import prizm.crypto.SSLCert;
 import prizm.util.Convert;
 import prizm.util.Logger;
 import prizm.util.ThreadPool;
@@ -146,7 +147,35 @@ public final class API {
 
             apiServer = new Server();
             ServerConnector connector;
-            boolean enableSSL = Prizm.getBooleanProperty("prizm.apiSSL");
+            final boolean enableSSL;
+            String keyStoreType = Prizm.getStringProperty("prizm.keyStoreType");
+            String keyStorePassword = Prizm.getStringProperty("prizm.keyStorePassword", null, true);
+            boolean enableSSLProperty = Prizm.getBooleanProperty("prizm.apiSSL");
+            boolean enforceSSL = Prizm.getBooleanProperty("prizm.apiServerEnforceSSL", true);
+            boolean listeningLocally = host.equals("127.0.0.1");
+            String keyStorePathProperty = Prizm.getStringProperty("prizm.keyStorePath");
+
+            //
+            // Enforce SSL if API is not for local usage
+            //
+            if (enforceSSL && !enableSSLProperty && !listeningLocally) {
+                keyStorePassword = API.adminPassword.length()==0?"DefaultPrizmSSLPassword":API.adminPassword;
+                SSLCert cert = new SSLCert(keyStorePassword);
+                String keyStorePath = Paths.get(Prizm.getUserHomeDir()).resolve(Paths.get("prizm.default.ks")).toString();
+                if (cert.isValid(keyStorePath)) {
+                    Logger.logInfoMessage("SSLEnforce: Default keystore already exists");
+                } else {
+                    Logger.logInfoMessage("SSLEnforce: Creating keystore: " + keyStorePath);
+                    final String fingerprint = cert.write(keyStorePath);
+                    Logger.logWarningMessage("SSLEnforce: We generated SSL certificate for you. Please remember it's SHA-1 fingerprint: \n ----------- SSL CERTIFICATE SHA1 FINGERPRINT -----------\n" + fingerprint + "\n ----------- END OF FINGERPRINT -----------");
+                }
+                keyStoreType="JKS";
+                keyStorePathProperty = "prizm.default.ks";
+                enableSSL = true;
+            } else {
+                enableSSL = enableSSLProperty;
+            }
+
             //
             // Create the HTTP connector
             //
@@ -175,15 +204,15 @@ public final class API {
                 https_config.setSecurePort(sslPort);
                 https_config.addCustomizer(new SecureRequestCustomizer());
                 sslContextFactory = new SslContextFactory();
-                String keyStorePath = Paths.get(Prizm.getUserHomeDir()).resolve(Paths.get(Prizm.getStringProperty("prizm.keyStorePath"))).toString();
+                String keyStorePath = Paths.get(Prizm.getUserHomeDir()).resolve(Paths.get(keyStorePathProperty)).toString();
                 Logger.logInfoMessage("Using keystore: " + keyStorePath);
                 sslContextFactory.setKeyStorePath(keyStorePath);
-                sslContextFactory.setKeyStorePassword(Prizm.getStringProperty("prizm.keyStorePassword", null, true));
+                sslContextFactory.setKeyStorePassword(keyStorePassword);
                 sslContextFactory.addExcludeCipherSuites("SSL_RSA_WITH_DES_CBC_SHA", "SSL_DHE_RSA_WITH_DES_CBC_SHA",
                         "SSL_DHE_DSS_WITH_DES_CBC_SHA", "SSL_RSA_EXPORT_WITH_RC4_40_MD5", "SSL_RSA_EXPORT_WITH_DES40_CBC_SHA",
                         "SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA", "SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA");
                 sslContextFactory.addExcludeProtocols("SSLv3");
-                sslContextFactory.setKeyStoreType(Prizm.getStringProperty("prizm.keyStoreType"));
+                sslContextFactory.setKeyStoreType(keyStoreType);
                 List<String> ciphers = Prizm.getStringListProperty("prizm.apiSSLCiphers");
                 if (!ciphers.isEmpty()) {
                     sslContextFactory.setIncludeCipherSuites(ciphers.toArray(new String[ciphers.size()]));

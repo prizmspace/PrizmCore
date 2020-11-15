@@ -38,9 +38,6 @@ public final class GetAccount extends APIServlet.APIRequestHandler {
     protected JSONStreamAware processRequest(HttpServletRequest req) throws PrizmException {
 
         Account account = ParameterParser.getAccount(req);
-        boolean includeLessors = "true".equalsIgnoreCase(req.getParameter("includeLessors"));
-        boolean includeAssets = "true".equalsIgnoreCase(req.getParameter("includeAssets"));
-        boolean includeCurrencies = "true".equalsIgnoreCase(req.getParameter("includeCurrencies"));
         boolean includeEffectiveBalance = "true".equalsIgnoreCase(req.getParameter("includeEffectiveBalance"));
 
         JSONObject response = JSONData.accountBalance(account, includeEffectiveBalance);

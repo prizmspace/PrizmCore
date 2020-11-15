@@ -407,7 +407,7 @@ public final class Users {
                 addedOrphanedBlock.put("height", block.getHeight());
                 addedOrphanedBlock.put("version", block.getVersion());
                 addedOrphanedBlock.put("block", block.getStringId());
-                addedOrphanedBlock.put("baseTarget", BigInteger.valueOf(block.getBaseTarget()).multiply(BigInteger.valueOf(100000)).divide(BigInteger.valueOf(Constants.INITIAL_BASE_TARGET)));
+                addedOrphanedBlock.put("baseTarget", BigInteger.valueOf(block.getBaseTarget()).multiply(BigInteger.valueOf(100000)).divide(BigInteger.valueOf(Constants.getINITIAL_BASE_TARGET(block.getHeight()))));
                 addedOrphanedBlocks.add(addedOrphanedBlock);
                 response.put("addedOrphanedBlocks", addedOrphanedBlocks);
                 Users.sendNewDataToAll(response);
@@ -427,7 +427,7 @@ public final class Users {
                 addedRecentBlock.put("height", block.getHeight());
                 addedRecentBlock.put("version", block.getVersion());
                 addedRecentBlock.put("block", block.getStringId());
-                addedRecentBlock.put("baseTarget", BigInteger.valueOf(block.getBaseTarget()).multiply(BigInteger.valueOf(100000)).divide(BigInteger.valueOf(Constants.INITIAL_BASE_TARGET)));
+                addedRecentBlock.put("baseTarget", BigInteger.valueOf(block.getBaseTarget()).multiply(BigInteger.valueOf(100000)).divide(BigInteger.valueOf(Constants.getINITIAL_BASE_TARGET(block.getHeight()))));
                 addedRecentBlocks.add(addedRecentBlock);
                 response.put("addedRecentBlocks", addedRecentBlocks);
                 Users.sendNewDataToAll(response);

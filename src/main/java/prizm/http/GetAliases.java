@@ -35,22 +35,7 @@ public final class GetAliases extends APIServlet.APIRequestHandler {
 
     @Override
     protected JSONStreamAware processRequest(HttpServletRequest req) throws PrizmException {
-        final int timestamp = ParameterParser.getTimestamp(req);
-        final long accountId = ParameterParser.getAccountId(req, true);
-        int firstIndex = ParameterParser.getFirstIndex(req);
-        int lastIndex = ParameterParser.getLastIndex(req);
-
-        JSONArray aliases = new JSONArray();
-        try (FilteringIterator<Alias> aliasIterator = new FilteringIterator<>(Alias.getAliasesByOwner(accountId, 0, -1),
-                alias -> alias.getTimestamp() >= timestamp, firstIndex, lastIndex)) {
-            while(aliasIterator.hasNext()) {
-                aliases.add(JSONData.alias(aliasIterator.next()));
-            }
-        }
-
-        JSONObject response = new JSONObject();
-        response.put("aliases", aliases);
-        return response;
+        return JSONResponses.FEATURE_NOT_AVAILABLE;
     }
 
 }

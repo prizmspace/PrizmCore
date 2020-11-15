@@ -47,7 +47,7 @@ final class BlockImpl implements Block {
 
     private byte[] blockSignature;
     private BigInteger cumulativeDifficulty = BigInteger.ZERO;
-    private long baseTarget = Constants.INITIAL_BASE_TARGET;
+    private long baseTarget = Constants.getINITIAL_BASE_TARGET(0);
     private volatile long nextBlockId;
     private int height = -1;
     private volatile long id;
@@ -466,11 +466,11 @@ final class BlockImpl implements Block {
                 baseTarget = prevBaseTarget - prevBaseTarget * Constants.BASE_TARGET_GAMMA
                         * (60 - Math.max(blocktimeAverage, Constants.MIN_BLOCKTIME_LIMIT)) / 6000;
             }
-            if (baseTarget < 0 || baseTarget > Constants.MAX_BASE_TARGET_2) {
-                baseTarget = Constants.MAX_BASE_TARGET_2;
+            if (baseTarget < 0 || baseTarget > Constants.getMaxBaseTarget(previousBlock.getHeight()+1)) {
+                baseTarget = Constants.getMaxBaseTarget(previousBlock.getHeight()+1);
             }
-            if (baseTarget < Constants.MIN_BASE_TARGET) {
-                baseTarget = Constants.MIN_BASE_TARGET;
+            if (baseTarget < Constants.getMinBaseTarget(previousBlock.getHeight()+1)) {
+                baseTarget = Constants.getMinBaseTarget(previousBlock.getHeight()+1);
             }
         } else {
             baseTarget = prevBaseTarget;

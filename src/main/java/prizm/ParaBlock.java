@@ -125,6 +125,8 @@ public class ParaBlock implements Serializable {
         private int height = 0;
         private long amount = 0;
         private long toID = 0;
+        private int last = 0;
+        private long paraTax = 0l;
 
         public long getBlockID() {
             return blockID;
@@ -165,6 +167,23 @@ public class ParaBlock implements Serializable {
         public void setHeight(int height) {
             this.height = height;
         }
+
+        public int getLast() { return last; }
+
+        public void setLast(int last) { this.last = last; }
+
+        public long getParaTax() {
+            return paraTax;
+        }
+
+        public void setParaTax(long paraTax) {
+            this.paraTax = paraTax;
+        }
+
+        @Override
+        public String toString() {
+            return "Payout{" + "blockID=" + blockID + ", txID=" + txID + ", height=" + height + ", amount=" + amount + ", toID=" + toID + ", last=" + last + ", paraTax=" + paraTax + '}';
+        }
     }
     
     public static class ParaParams implements Serializable {
@@ -195,6 +214,8 @@ public class ParaBlock implements Serializable {
         public void setValid(boolean valid) {
             this.valid = valid;
         }
+        
+        
     }
     
     public static List<Transaction> sort(List<Transaction> transactions) {

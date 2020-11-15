@@ -1228,9 +1228,10 @@ public final class Peers {
     }
 
     private static void checkBlockchainState() {
+        Block lastBlock = Prizm.getBlockchain().getLastBlock();
         Peer.BlockchainState state = Constants.isLightClient ? Peer.BlockchainState.LIGHT_CLIENT :
                 (Prizm.getBlockchainProcessor().isDownloading() || Prizm.getBlockchain().getLastBlockTimestamp() < Prizm.getEpochTime() - 600) ? Peer.BlockchainState.DOWNLOADING :
-                        (Prizm.getBlockchain().getLastBlock().getBaseTarget() / Constants.INITIAL_BASE_TARGET > 10 && !Constants.isTestnet) ? Peer.BlockchainState.FORK :
+                        (lastBlock.getBaseTarget() / Constants.getINITIAL_BASE_TARGET(lastBlock.getHeight()) > 10 && !Constants.isTestnet) ? Peer.BlockchainState.FORK :
                         Peer.BlockchainState.UP_TO_DATE;
         if (state != currentBlockchainState) {
             JSONObject json = new JSONObject(myPeerInfo);

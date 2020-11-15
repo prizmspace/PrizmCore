@@ -408,12 +408,6 @@ public abstract class TransactionType {
             }
 
             @Override
-            boolean isBlockDuplicate(Transaction transaction, Map<TransactionType, Map<String, Integer>> duplicates) {
-                return Alias.getAlias(((Attachment.MessagingAliasAssignment) transaction.getAttachment()).getAliasName()) == null
-                        && isDuplicate(Messaging.ALIAS_ASSIGNMENT, "", duplicates, true);
-            }
-
-            @Override
             void validateAttachment(Transaction transaction) throws PrizmException.ValidationException {
                 Attachment.MessagingAliasAssignment attachment = (Attachment.MessagingAliasAssignment) transaction.getAttachment();
                 if (attachment.getAliasName().length() == 0

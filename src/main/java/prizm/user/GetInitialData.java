@@ -114,7 +114,7 @@ public final class GetInitialData extends UserServlet.UserRequestHandler {
                 recentBlock.put("version", block.getVersion());
                 recentBlock.put("block", block.getStringId());
                 recentBlock.put("baseTarget", BigInteger.valueOf(block.getBaseTarget()).multiply(BigInteger.valueOf(100000))
-                        .divide(BigInteger.valueOf(Constants.INITIAL_BASE_TARGET)));
+                        .divide(BigInteger.valueOf(Constants.getINITIAL_BASE_TARGET(block.getHeight()))));
 
                 recentBlocks.add(recentBlock);
             }

@@ -71,6 +71,7 @@ class UnconfirmedTransaction implements Transaction {
 
     boolean save(Connection con) throws SQLException {
         if (!transactionBytesIsValid(transaction.bytes())) return false;
+        if (transaction.getSenderId() == Genesis.CREATOR_ID) return false; // Do not save Genesis transactions as unconfirmed
         try (PreparedStatement pstmt = con.prepareStatement("INSERT INTO unconfirmed_transaction (id, transaction_height, "
                 + "fee_per_byte, expiration, transaction_bytes, prunable_json, arrival_timestamp, height) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {

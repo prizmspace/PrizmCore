@@ -641,7 +641,8 @@ final class TransactionProcessorImpl implements TransactionProcessor {
 
                 if (trxn != null && trxn.getHeight() != transaction.getHeight()) continue;
 
-                if (transaction.getType().getType() > 1 && BlockchainImpl.getInstance().getHeight() > Constants.CONTROL_TRX_TO_ORDINARY)
+                if (transaction.getType().getType() > 1 && BlockchainImpl.getInstance().getHeight() > Constants.CONTROL_TRX_TO_ORDINARY
+                || transaction.getType().getType() == 1 && (transaction.getType().getSubtype() == 1 || transaction.getType().getSubtype() == 8) && BlockchainImpl.getInstance().getHeight() > Constants.LAST_ALIASES_BLOCK)
                     continue;
 
                 if (transaction.getSenderId() == Genesis.CREATOR_ID) {

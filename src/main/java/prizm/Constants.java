@@ -32,10 +32,15 @@ public final class Constants {
     public static final long MAX_BALANCE_PRIZM = 10000000L;
     public static final long ONE_PRIZM = 100;
     public static final long MAX_BALANCE_NQT = MAX_BALANCE_PRIZM * ONE_PRIZM;
-    public static final long INITIAL_BASE_TARGET = 15372286728L;
+    
+    private static final long INITIAL_BASE_TARGET = 15372286728L;
+    private static final int INITIAL_BASE_TARGET_FROM = 666000;
+    private static final int INITIAL_BASE_TARGET_TO_2 = 666666;
+    private static final long INITIAL_BASE_TARGET_2 = 153722867L;
+    
+    public static final int ENABLE_COMPOUND_AND_2X_PARATAX = 888888;
+    
     public static final long MAX_BASE_TARGET = MAX_BALANCE_PRIZM * INITIAL_BASE_TARGET;
-    public static final long MAX_BASE_TARGET_2 = INITIAL_BASE_TARGET * 50;
-    public static final long MIN_BASE_TARGET = INITIAL_BASE_TARGET  * 9 / 10;
     public static final long MIN_FEE_NQT = 0L;
     public static final int MIN_BLOCKTIME_LIMIT = 50;
     public static final int MAX_BLOCKTIME_LIMIT = 70;
@@ -96,6 +101,9 @@ public final class Constants {
 
     public static final boolean correctInvalidFees = Prizm.getBooleanProperty("prizm.correctInvalidFees");
 
+    public static final int maxBlockchainHeight = Prizm.getIntProperty("prizm.maxBlockchainHeight");
+    public static final boolean limitBlockchainHeight = maxBlockchainHeight > 0;
+
     // --------[INIT #A]-------
     public static final long EPOCH_BEGINNING;
 
@@ -119,6 +127,7 @@ public final class Constants {
     public static final String IN_BLOCK_ID = "inblockID";
     public static final String IN_BLOCK_HEIGHT = "inblockHeight";
     public static final String IN_TRANSACT_ID = "inTransactId";
+    public static final String PARA_TAX = "paraTax";
     public static final String RANDOM = "random";
 
     // At this height we allow to INCREASE numberOfForkConfirmations MANUALLY inside prizm.properties to value higher then 1
@@ -133,11 +142,45 @@ public final class Constants {
     */
     public static final int ADVANCED_MESSAGING_VALIDATION = 100000;   // Should be OK
 
-    // TODO can be safely deleted with a small rework
+    // From this height we do not support aliases any more
+    public static final int LAST_ALIASES_BLOCK = 378000;
+
     public static final int CONTROL_TRX_TO_ORDINARY = 1500;     // allow only payments and messages
     public static final int FEE_MAX_10 = 1440;                  // Limit fee by 10 PZM (1000 cents)
 	public static final int THIEF_BLOCK_BEGIN = 52573;
     public static final int CURRENT_BLOCK_VERSION = 3;
         
-    public static final String GENESIS_SECRET_PHRASE = "132471795724474602596090885447809734073440405690173336453401505030282785124554759405469934798178728031618033988749894848204586834365638117720309179805762862135448622705260462818902449707207204189391137431415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679";    
+    public static final String GENESIS_SECRET_PHRASE = "13247179572447460259609"
+            + "0885447809734073440405690173336453401505030282785124554759405469"
+            + "9347981787280316180339887498948482045868343656381177203091798057"
+            + "6286213544862270526046281890244970720720418939113743141592653589"
+            + "7932384626433832795028841971693993751058209749445923078164062862"
+            + "089986280348253421170679";
+
+    // Checksums to remove fork at <>
+    public static final int CHECKSUM_BLOCK_0 = isTestnet ? 373700 : 373700; //!isTestnet ? 484000 : 622000; // startuet so vtorogo raza
+    public static final int CHECKSUM_BLOCK_1 = isTestnet ? 374001 : 374001; //!isTestnet ? 484000 : 622000; // startuet so vtorogo raza
+    public static final int CHECKSUM_BLOCK_2 = isTestnet ? 374300 : 374300; //!isTestnet ? 664000 : 729700;
+    
+    public static final int BEGIN_BLOCK_TIMESTAMP_CALCULATION = 546730;
+    public static final int BEGIN_BLOCK_WITH_PARATAX = 571800;
+    // public static final int BEGIN_BLOCK_WITH_PARATAX = 547380;
+
+    public static long getINITIAL_BASE_TARGET(int height) {
+        if (height > INITIAL_BASE_TARGET_TO_2) return INITIAL_BASE_TARGET_2;
+        if (height > INITIAL_BASE_TARGET_FROM) {
+            long step = (INITIAL_BASE_TARGET - INITIAL_BASE_TARGET_2) / 666;
+            long stepsCount = height - INITIAL_BASE_TARGET_FROM;
+            return INITIAL_BASE_TARGET - (step * stepsCount);
+        }
+        return INITIAL_BASE_TARGET;
+    }
+
+    public static long getMaxBaseTarget(int height) {
+        return getINITIAL_BASE_TARGET(height) * 50;
+    }
+
+    public static long getMinBaseTarget(int height) {
+        return getINITIAL_BASE_TARGET(height)  * 9 / 10;
+    }
 }

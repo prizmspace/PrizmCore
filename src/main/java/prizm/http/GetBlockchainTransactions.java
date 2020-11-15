@@ -16,6 +16,7 @@
 
 package prizm.http;
 
+import prizm.Genesis;
 import prizm.Prizm;
 import prizm.PrizmException;
 import prizm.Transaction;
@@ -25,6 +26,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONStreamAware;
 
 import javax.servlet.http.HttpServletRequest;
+
+import static prizm.http.JSONResponses.FEATURE_NOT_AVAILABLE;
 
 public final class GetBlockchainTransactions extends APIServlet.APIRequestHandler {
 
@@ -40,6 +43,9 @@ public final class GetBlockchainTransactions extends APIServlet.APIRequestHandle
     protected JSONStreamAware processRequest(HttpServletRequest req) throws PrizmException {
 
         long accountId = ParameterParser.getAccountId(req, true);
+        if (accountId == Genesis.CREATOR_ID) {
+            return FEATURE_NOT_AVAILABLE;
+        }
         int timestamp = ParameterParser.getTimestamp(req);
         int numberOfConfirmations = ParameterParser.getNumberOfConfirmations(req);
         boolean withMessage = "true".equalsIgnoreCase(req.getParameter("withMessage"));

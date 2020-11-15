@@ -31,12 +31,10 @@ final class ProcessTransactions extends PeerServlet.PeerRequestHandler {
 
     @Override
     JSONStreamAware processRequest(JSONObject request, Peer peer) {
-//System.out.println("--------------------------------\nprocpeertrans 34 peer = " +peer.getHost() + "  trx = "+request.size()+" \n--------------------------------");
         try {
             Prizm.getTransactionProcessor().processPeerTransactions(request);
             return JSON.emptyJSON;
         } catch (RuntimeException | PrizmException.ValidationException e) {
-            //Logger.logDebugMessage("Failed to parse peer transactions: " + request.toJSONString());
             peer.blacklist(e);
             return PeerServlet.error(e);
         }
