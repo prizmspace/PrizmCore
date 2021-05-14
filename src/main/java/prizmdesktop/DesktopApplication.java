@@ -98,9 +98,9 @@ public class DesktopApplication extends Application {
     
     @SuppressWarnings("unused")
     public static void refresh() {
-        if(webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html")){
+        if (webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html")) {
             Platform.runLater(() -> showStage(true));
-        }else{
+        } else {
             Platform.runLater(() -> showStagelight(true));
         }
     }
@@ -173,15 +173,15 @@ public class DesktopApplication extends Application {
                     Locale locale = Locale.getDefault();
                     String language = locale.getLanguage().toLowerCase() + "-" + locale.getCountry().toUpperCase();
                     window.setMember("javaFxLanguage", language);
-if(webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html")){
-                    webEngine.executeScript("console.log = function(msg) { java.log(msg); };");
-                    stage.setTitle("Prizm Desktop - " + webEngine.getLocation());
-                    nrs = (JSObject) webEngine.executeScript("NRS");
-                    updateClientState("Desktop Wallet started");
-}else{
-                    stage.setTitle("Prizm Desktop - " + webEngine.getLocation());
-                    updateClientState("Desktop Wallet started");
-}
+                    if (webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html")) {
+                        webEngine.executeScript("console.log = function(msg) { java.log(msg); };");
+                        stage.setTitle("Prizm Desktop - " + webEngine.getLocation());
+                        nrs = (JSObject) webEngine.executeScript("NRS");
+                        updateClientState("Desktop Wallet started");
+                    } else {
+                        stage.setTitle("Prizm Desktop - " + webEngine.getLocation());
+                        updateClientState("Desktop Wallet started");
+                    }
                                    
 
                     BlockchainProcessor blockchainProcessor = Prizm.getBlockchainProcessor();
@@ -266,11 +266,11 @@ if(webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html"))
     }
 
     private void updateClientState(String msg) {
- if(webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html")){
-     Platform.runLater(() -> webEngine.executeScript("NRS.getState(null, '" + msg + "')"));
- }else{
-     Platform.runLater(() -> webEngine.executeScript(""));  ///ssss 666
- }
+         if (webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html")) {
+             Platform.runLater(() -> webEngine.executeScript("NRS.getState(null, '" + msg + "')"));
+         } else {
+             Platform.runLater(() -> webEngine.executeScript(""));  ///ssss 666
+         }
     }
 
     private static String getUrl() {
@@ -404,9 +404,9 @@ if(webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html"))
         } else {
             Logger.logInfoMessage(msg, e);
         }
-if(webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html")){
-        if(webEngine.getLocation().equalsIgnoreCase("webEngine.getLocation()"))nrs.call("growl", msg);
-}        
+        if (webEngine.getLocation().equalsIgnoreCase("http://localhost:9976/index.html")) {
+                if (webEngine.getLocation().equalsIgnoreCase("webEngine.getLocation()"))nrs.call("growl", msg);
+        }
         
     }
 
