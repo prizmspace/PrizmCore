@@ -1,36 +1,79 @@
-# PrizmCore - the heart of the PRIZM Project.
+What is Prizm?
+-------------
 
-## PRIZM Whitepaper ([en](https://tech.prizm.vip/files/prizm_wp_en.pdf), [ru](https://tech.prizm.vip/files/prizm_wp_ru.pdf), [zh](https://tech.prizm.vip/files/prizm_wp_zh.pdf), [el](https://tech.prizm.vip/files/prizm_wp_el.pdf), [id](https://tech.prizm.vip/files/prizm_wp_id.pdf), [tr](https://tech.prizm.vip/files/prizm_wp_tr.pdf))
+Prizm is a decentralized blockchain project built on top of [NXT opesource project](https://bitbucket.org/Jelurida/nxt/src) that provides tools for a decentralized financial platform. Coded in Java, it is rely purely on proof-of-stake for consensus.
 
-## PrizmCore wallet download (v.1.10.4.6: [Windows](http://tech.prizm.space/files/prizm-dist-1.10.4.6-win.exe), [OS/X](http://tech.prizm.space/files/prizm-dist-1.10.4.6-mac.dmg), [Linux](http://tech.prizm.space/files/prizm-dist-1.10.4.6-linux.tgz))
+Welcome to the Prizm Main Network. This is the main network where the tokens hold value and should be guarded very carefully. If you are testing the network, or developing unstable software on Prizm, we highly recommend using either testnet or regtest mode. 
 
-## PrizmCore Mirror (v.1.10.4.6: [Windows](https://tech.prizm.vip/files/prizm-dist-1.10.4.6-win.exe), [OS/X](https://tech.prizm.vip/files/prizm-dist-1.10.4.6-mac.dmg), [Linux](https://tech.prizm.vip/files/prizm-dist-1.10.4.6-linux.tgz))
+What is Prizm node?
+-------------
 
-## PrizmCore_Mods [v.1.2 All OS](https://tech.prizm.vip/files/PrizmCore_Mod_v.1.2_final.zip), [v.1.32 All OS](https://tech.prizm.vip/files/PrizmCore_Mod_v.1.32.zip)
+It implements a full node and is capable of storing, validating, and distributing all history of the Prizm network. Prizm Core is considered the reference implementation for the Prizm network.
 
-## Prizm app [Android lite](https://tech.prizm.vip/files/prizm.apk), [IOS full](https://apps.apple.com/ru/app/prizm-wallet/id1451337725), [IOS lite](https://apps.apple.com/ru/app/prizm-light/id1549745442).
+Prizm Documentation and Usage Resources
+---------------
 
-## User friendly [Online Wallet](https://wallet.prizm.space/) ([Mirror](https://wallet.prizm-space.com/))
+These are some resources that might be helpful.
 
-## User friendly [Online Wallet](https://wallet.prizm.vip/) v 1.3
+### Whitepapers
 
-## Client downloads for [Windows](https://tech.prizm.vip/files/PRIZM_Wallet_Setup.exe) and [OS/X](https://tech.prizm.vip/files/PRIZM_Wallet.dmg)
+* [en](https://tech.prizm.vip/files/prizm_wp_en.pdf)
+* [ru](https://tech.prizm.vip/files/prizm_wp_ru.pdf)
+* [zh](https://tech.prizm.vip/files/prizm_wp_zh.pdf)
+* [el](https://tech.prizm.vip/files/prizm_wp_el.pdf)
+* [id](https://tech.prizm.vip/files/prizm_wp_id.pdf)
+* [tr](https://tech.prizm.vip/files/prizm_wp_tr.pdf)
 
-## Easy API gateway [PrizmAPIServlet 1.10.4](https://tech.prizm.vip/files/prizm-api-1.10.4.tgz)
+### Precompiled distribution of the Prizm node (v.1.10.4.6)
 
-## [Blockchain explorer](https://blockchain.prizm.vip/) AND [Web Prizm Core](https://core.prizm.vip/)
+Hash: MD5
 
-## [Prizm ParaMining calculator](https://paracalc.prizm.space/).
+If you would like to validate that the binaries you download are exactly the same as those provided and built by the Prizm team, then you can compare your binaries to the following md5 hashes:
 
-## [Prizm TOOL visualizer](https://tool-prizm.space/)
 
-## Java 8 for PrizmCore u221 [Windows](https://tech.prizm.vip/files/JavaWindows8u221.zip), [Linux](https://tech.prizm.vip/files/JavaLinux8u221.zip), [Macos](https://tech.prizm.vip/files/JavaMacOS8u221.zip).
+* [Windows](http://tech.prizm.space/files/prizm-dist-1.10.4.6-win.exe) 8da1e1b2b468b107865686eea48c11f3
+* [OS/X](http://tech.prizm.space/files/prizm-dist-1.10.4.6-mac.dmg) 3c8df3dc591fe3010a8962ea924edda2
+* [Linux](http://tech.prizm.space/files/prizm-dist-1.10.4.6-linux.tgz) ad1cc9487a269c1bed023a74f435f07f
 
-## Official blockchain snapshot. Height:2347552 | 5.01.23 [.torrent](https://tech.prizm.vip/files/prizm_db.torrent) and [.zip](https://tech.prizm.vip/files/prizm_db.zip)
+### Precompiled distribution of the Prizm node mod
 
-## [API doc instructions](https://blockchain.prizm.vip/api-doc/PRIZM_API.html)
+Prizm node mod is a modified fronted part of the node. It is writen on JS used regular node REST API and doesn't affect node core.
 
-## [Paracalc ecxel from enthusiasts v.5.4](https://tech.prizm.vip/files/PARACALC_5.4.xlsm).
+[Prizm node mod v.1.2 All OS](https://tech.prizm.vip/files/PrizmCore_Mod_v.1.2_final.zip)
+[Prizm node mod v.1.32 All OS](https://tech.prizm.vip/files/PrizmCore_Mod_v.1.32.zip)
+
+### Prizm mobile app wallets
+
+[Android lite](https://tech.prizm.vip/files/prizm.apk)
+[IOS full](https://apps.apple.com/ru/app/prizm-wallet/id1451337725)
+[IOS lite](https://apps.apple.com/ru/app/prizm-light/id1549745442)
+
+### Prizm wallet for PC/Mac 
+
+[Windows](https://tech.prizm.vip/files/PRIZM_Wallet_Setup.exe)
+[OS/X](https://tech.prizm.vip/files/PRIZM_Wallet.dmg)
+
+### Basic usage resources
+
+* [Online Wallet](https://wallet.prizm.space/)
+* [Online Wallet](https://wallet.prizm.vip/) v 1.3
+* [Blockchain explorer](https://blockchain.prizm.vip/)
+* [Web Prizm Core](https://core.prizm.vip/)
+* [Prizm ParaMining calculator](https://paracalc.prizm.space/)
+* [Prizm TOOL visualizer](https://tool-prizm.space/)
+
+### Development resources
+
+* [Easy API gateway PrizmAPIServlet 1.10.4](https://tech.prizm.vip/files/prizm-api-1.10.4.tgz)
+* [API doc instructions](https://blockchain.prizm.vip/api-doc/PRIZM_API.html)
+
+### Other Resources
+
+* [Java 8  Windows](https://tech.prizm.vip/files/JavaWindows8u221.zip)
+* [Java 8  Linux](https://tech.prizm.vip/files/JavaLinux8u221.zip)
+* [Java 8  Macos](https://tech.prizm.vip/files/JavaMacOS8u221.zip)
+* Official blockchain snapshot. Height:2347552 | 5.01.23 [.torrent](https://tech.prizm.vip/files/prizm_db.torrent) and [.zip](https://tech.prizm.vip/files/prizm_db.zip)
+* [Paracalc ecxel from enthusiasts v.5.4](https://tech.prizm.vip/files/PARACALC_5.4.xlsm)
 
 
 Attention! We don't include PrizmEngine.java in current repository for security reasons and for preventing creating forks by anyone. This file will be published later.
