@@ -27,6 +27,17 @@ These are some resources that might be helpful.
 * [id](https://tech.prizm.vip/files/prizm_wp_id.pdf)
 * [tr](https://tech.prizm.vip/files/prizm_wp_tr.pdf)
 
+### Precompiled distribution of the Prizm node (v.1.10.4.6)
+
+Hash: MD5
+
+If you would like to validate that the binaries you download are exactly the same as those provided and built by the Prizm team, then you can compare your binaries to the following md5 hashes:
+
+* [Windows](https://tech.prizm.vip/files/prizm-dist-1.10.4.7-win.exe) 2C2B362D16AD79FA45396F754CC7AAD2
+
+
+* [PrizmEngine 1.10.4.7](https://tech.prizm.vip/files/PrizmEngine.jar) B5CD1C417D5BE602E0EB4D064EB02E7B
+
 
 ### Precompiled distribution of the Prizm node mod
 
@@ -43,7 +54,7 @@ Prizm node mod is a modified fronted part of the node. It is writen on JS used r
 ### Basic usage resources
 
 * [Online Wallet](https://wallet.prizm.vip/) v 1.3
-* [Mirror Online Wallet](https://mirror-prizm.vip/) v 1.2
+* [Mirror Online Wallet](https://mirror-prizm.vip/) v 1.3
 * [Blockchain explorer](https://blockchain.prizm.vip/)
 * [Web Prizm Core](https://core.prizm.vip/)
 * [Prizm TOOL visualizer](https://tool-prizm.space/)
@@ -54,8 +65,7 @@ Prizm node mod is a modified fronted part of the node. It is writen on JS used r
 
 ### Other Resources
 
-* Official blockchain snapshot. Height:3459470 | 9.04.25  [.zip](https://tech.prizm.vip/files/prizm_db_3459470H.zip)
-* Official blockchain snapshot. Height:3464500 | 15.04.25  [.zip](https://tech.prizm.vip/files/prizm_db_3464500H.zip)
+* Official blockchain snapshot. Height:3482435 | 3.05.25  [.zip](https://tech.prizm.vip/files/prizm_db_3482435H.zip)
 
 * [Paracalc ecxel from enthusiasts v.5.9](https://tech.prizm.vip/files/PARACALC_5.9.xlsm).
 
