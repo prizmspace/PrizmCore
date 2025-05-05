@@ -27,7 +27,7 @@ These are some resources that might be helpful.
 * [id](https://tech.prizm.vip/files/prizm_wp_id.pdf)
 * [tr](https://tech.prizm.vip/files/prizm_wp_tr.pdf)
 
-### Precompiled distribution of the Prizm node (v.1.10.4.6)
+### Precompiled distribution of the Prizm node (v.1.10.4.7)
 
 Hash: MD5
 
