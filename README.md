@@ -33,8 +33,8 @@ Hash: MD5
 
 If you would like to validate that the binaries you download are exactly the same as those provided and built by the Prizm team, then you can compare your binaries to the following md5 hashes:
 
-* [Windows](https://tech.prizm.vip/files/prizm-dist-1.10.4.7-win.exe) 2C2B362D16AD79FA45396F754CC7AAD2
-* [Linux](https://tech.prizm.vip/files/prizm-dist-1.10.4.7-linux.zip) 5AB603C6FFF742156678B1E3CF5F1918
+* Prizm Core [Windows](https://tech.prizm.vip/files/prizm-dist-1.10.4.7-win.exe) 2C2B362D16AD79FA45396F754CC7AAD2
+* Prizm Core [Linux](https://tech.prizm.vip/files/prizm-dist-1.10.4.7-linux.zip) 5AB603C6FFF742156678B1E3CF5F1918
 
 
 * [PrizmEngine 1.10.4.7](https://tech.prizm.vip/files/PrizmEngine.jar) B5CD1C417D5BE602E0EB4D064EB02E7B
