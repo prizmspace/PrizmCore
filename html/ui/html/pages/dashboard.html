@@ -1,0 +1,128 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright © 2013-2016 The prizm Developers.                            ~
+  ~                                                                           ~
+  ~ See the AUTHORS.txt, DEVELOPER-AGREEMENT.txt and LICENSE.txt files at     ~
+  ~ the top-level directory of this distribution for the individual copyright ~
+  ~ holder information and the developer policies on copyright and licensing. ~
+  ~                                                                           ~
+  ~ Unless otherwise agreed in a custom licensing agreement, no part of the   ~
+  ~ prizm software, including this file, may be copied, modified, propagated,   ~
+  ~ or distributed except according to the terms contained in the LICENSE.txt ~
+  ~ file.                                                                     ~
+  ~                                                                           ~
+  ~ Removal or modification of this copyright notice is prohibited.           ~
+  ~                                                                           ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<div id="dashboard_page" class="page" style="display:block">
+    <section class="content-header">
+        <span style="float:right; font-size:115%;">
+            <span id="nrs_version_info">PrizmCore</span>
+            <a href="#" class="small-box-footer" data-toggle="modal" data-target="#nrs_modal">
+                <span id="nrs_version" class="loading_dots"><span>.</span><span>.</span><span>.</span></span>
+            </a>
+            <span class="label label-danger" id="nrs_update" style="display:none;"></span>
+        </span>
+        <h1 data-i18n="dashboard">Dashboard</h1>
+
+    </section>
+
+    <section class="content">
+        <div class="alert-danger alert alert-no-icon" id="dashboard_message" style="display:none;padding:5px;padding-left:5px;margin-bottom:15px;"></div>
+
+        <div class="alert-danger alert alert-no-icon" id="secondary_dashboard_message" style="display:none;padding:5px;padding-left:5px;margin-bottom:15px;"></div>
+
+<table class="dashboard-table""><tr><td>
+            <div class="dashbox">
+                <div class="small-box">
+                  <div class="icon" style="right:auto;left:5%;"><i class="fa fa-briefcase"></i></div>
+                    <a href="#" class="small-box-header" data-toggle="modal" data-target="#account_details_modal"><span data-i18n="account_details">More info</span> <i class="fa fa-arrow-circle-right"></i></a>
+                    <div class="inner" align="right" valign="bottom">
+                        <h3><span id="account_balance" class="loading_dots" style="color:#9364ff;"><span>.</span><span>.</span><span>.</span></span></h3>
+                    </div>
+                </div>
+                <p><span data-i18n="account_balance">Account Balance</span> </p>
+            </div>
+            <div class="dashbox">
+                <div class="small-box">
+                  <div class="icon" style="right:auto;left:5%;"><i class="fa fa-suitcase"></i></div>
+                    <div class="inner" align="right" valign="bottom">
+                        <h3><span id="account_hold" class="loading_dots" style="color:#9364ff;"><span>.</span><span>.</span><span>.</span></span></h3>
+                    </div>
+                </div>
+                <p><span data-i18n="account_hold">Account Hold</span> </p>
+            </div>
+            <div class="dashbox dashbox-bl">
+                <div class="small-box">
+                  <div class="icon" style="right:auto;left:5%;"><i class="fa fa-bank"></i></div>
+                  <a href="#" class="small-box-header goto-page" data-page="hierarchy"><span data-i18n="my_disciples">My Disciples</span> <i class="fa fa-arrow-circle-right"></i></a>
+                    <div class="inner" align="right">
+                        <h3><span id="account_amount" class="loading_dots" style="color:#9364ff"><span>.</span><span>.</span><span>.</span></span></h3>
+                    </div>
+                </div>
+                <p data-i18n="hierarchy_amount">Hierarchy amount</p>
+            </div>
+            <div class="dashbox dashbox-tr">
+                <div class="small-box">
+                    <div class="icon" style="right:auto;left:5%;"><i class="fa fa-angle-double-up"></i></div>
+                    <div class="inner" aligh="right">
+                        <h3><span id="account_multiplier" class="loading_dots"><span>.</span><span>.</span><span>.</span></span></h3>
+                    </div>
+                </div>
+                <p><span data-i18n="multiplier">Multiplier</span></p>
+            </div>
+            <div class="dashbox dashbox-tl">
+                <div class="small-box">
+                  <a href="#" class="small-box-header goto-page" data-page="blocks"><span data-i18n="blocks">More info</span> <i class="fa fa-arrow-circle-right"></i></a>
+                    <div class="inner" align="right">
+                      <span class="nrs_current_block loading_dots"><span>.</span><span>.</span><span>.</span></span>
+                      <h3><span style="font-size:22px" id="nrs_current_block_time" class="loading_dots"><span>.</span><span>.</span><span>.</span></span></h3>
+                    </div>
+                    <div class="icon" style="right:auto;left:5%;""><i class="fa fa-chain"></i></div>
+                </div>
+            </div>
+
+            <div class="dashbox dashbox-br">
+                <div class="small-box">
+                  <div class="icon"  style="right:auto;left:5%;"><i class="fa fa-cogs"></i></div>
+
+                    <div class="inner" valign="bottom">
+
+
+                        <h3><span id="account_paramining" class="loading_dots" style="color:#9364ff"><span>.</span><span>.</span><span>.</span></span></h3>
+                    </div>
+
+                </div>
+                <p><span data-i18n="paramining">Paramining</span> </p>
+            </div>
+
+            <div class="dashbox dashbox-tr">
+                <div class="small-box">
+                  <a href="#" class="small-box-header goto-page" data-page="messages"><span data-i18n="messages">More info</span> <i class="fa fa-arrow-circle-right"></i></a>
+                    <div class="inner"  valign="bottom">
+                        <h3><span id="account_message_count" class="loading_dots"><span>.</span><span>.</span><span>.</span></span></h3>
+                    </div>
+                    <div class="icon" style="right:auto;left:5%;"><i class="fa fa-envelope-o"></i></div>
+                </div>
+                <p data-i18n="message_count">Messages</p>
+            </div>
+
+            <div class="dashbox dashbox-br" style="opacity: 0;" id="paratax_container">
+                <div class="small-box">
+                  <div class="icon"  style="right:auto;left:5%;"><i class="fa fa-pie-chart"></i></div>
+
+                    <div class="inner" valign="bottom">
+
+
+                        <h3><span id="paratax" class="loading_dots" style="color:#9364ff"><span>.</span><span>.</span><span>.</span></span></h3>
+                    </div>
+
+                </div>
+                <p><span>PARATAX</span> </p>
+            </div>
+
+</td></tr></table>
+        </div>
+
+    </section>
+</div>

@@ -1,0 +1,51 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright © 2013-2016 The prizm Developers.                            ~
+  ~                                                                           ~
+  ~ See the AUTHORS.txt, DEVELOPER-AGREEMENT.txt and LICENSE.txt files at     ~
+  ~ the top-level directory of this distribution for the individual copyright ~
+  ~ holder information and the developer policies on copyright and licensing. ~
+  ~                                                                           ~
+  ~ Unless otherwise agreed in a custom licensing agreement, no part of the   ~
+  ~ prizm software, including this file, may be copied, modified, propagated,   ~
+  ~ or distributed except according to the terms contained in the LICENSE.txt ~
+  ~ file.                                                                     ~
+  ~                                                                           ~
+  ~ Removal or modification of this copyright notice is prohibited.           ~
+  ~                                                                           ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<section class="sidebar">
+  <form action="#" method="get" class="sidebar-form" id="id_search" autocomplete="off">
+      <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search by ID..." data-i18n="[placeholder]search_by_id">
+          <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+          </span>
+      </div>
+  </form>
+    <div class="user-panel" style="width:100%;">
+        <div class="pull-left info" style="width:100%;">
+            <div class="pull-left info" style="width:100%;text-align:center;align:center;">
+                  <a class="badge-active account-id-button" id="sidebar_account_id" data-target="#account_details_modal" data-toggle="modal" href="#"></a>
+                <div style="margin-bottom:5px;margin-top:10px;align:center;width:100%;">
+                  <center>
+                  <span><a class='btn btn-default btn-xs' style="font-size:12pt;margin-bottom:5px;" href="#" id="account_name" data-toggle="modal" data-target="#account_info_modal" data-i18n="set_account_info">Set Account Info</a></span>
+
+                    <div id="sideBalance">
+                        <span class="badge-active" id="account_balance_sidebar" style="padding:3px;font-size:14pt;vertical-align:middle;"></span>
+                        <span style="font-size: 8pt;vertical-align: middle;color:#9933cc;">PRIZM</span>
+                    </div>
+                  </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="sidebar-menu" id="sidebar_menu">
+    </ul>
+    <div align="center" class="current-block-container"">
+        <span data-i18n="height"  style="color:#514667">HEIGHT</span>
+        <span class="badge-active" style="padding:3px;" id="sidebar_block_link" data-toggle="tooltip" data-placement="bottom" title="HEIGHT" data-i18n="[title]current_blockchain_height"></span>
+    </div>
+    <div style="height:50px"></div> <!-- Dummy div, otherwise some browsers cut of the sidebar too high when scrolling on smaller screens -->
+</section>

@@ -1,0 +1,59 @@
+/******************************************************************************
+ * Copyright © 2013-2016 The Nxt Core Developers.                             *
+ *                                                                            *
+ * See the AUTHORS.txt, DEVELOPER-AGREEMENT.txt and LICENSE.txt files at      *
+ * the top-level directory of this distribution for the individual copyright  *
+ * holder information and the developer policies on copyright and licensing.  *
+ *                                                                            *
+ * Unless otherwise agreed in a custom licensing agreement, no part of the    *
+ * Nxt software, including this file, may be copied, modified, propagated,    *
+ * or distributed except according to the terms contained in the LICENSE.txt  *
+ * file.                                                                      *
+ *                                                                            *
+ * Removal or modification of this copyright notice is prohibited.            *
+ *                                                                            *
+ ******************************************************************************/
+
+package prizm.http;
+
+import prizm.peer.Hallmark;
+import org.json.simple.JSONStreamAware;
+
+import javax.servlet.http.HttpServletRequest;
+
+import static prizm.http.JSONResponses.INCORRECT_HALLMARK;
+import static prizm.http.JSONResponses.MISSING_HALLMARK;
+
+public final class DecodeHallmark extends APIServlet.APIRequestHandler {
+
+    static final DecodeHallmark instance = new DecodeHallmark();
+
+    private DecodeHallmark() {
+        super(new APITag[] {APITag.TOKENS}, "hallmark");
+    }
+
+    @Override
+    protected JSONStreamAware processRequest(HttpServletRequest req) {
+
+        String hallmarkValue = req.getParameter("hallmark");
+        if (hallmarkValue == null) {
+            return MISSING_HALLMARK;
+        }
+
+        try {
+
+            Hallmark hallmark = Hallmark.parseHallmark(hallmarkValue);
+
+            return JSONData.hallmark(hallmark);
+
+        } catch (RuntimeException e) {
+            return INCORRECT_HALLMARK;
+        }
+    }
+
+    @Override
+    protected boolean allowRequiredBlockParameters() {
+        return false;
+    }
+
+}

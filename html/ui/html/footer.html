@@ -1,0 +1,54 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright © 2013-2016 The prizm Developers.                            ~
+  ~                                                                           ~
+  ~ See the AUTHORS.txt, DEVELOPER-AGREEMENT.txt and LICENSE.txt files at     ~
+  ~ the top-level directory of this distribution for the individual copyright ~
+  ~ holder information and the developer policies on copyright and licensing. ~
+  ~                                                                           ~
+  ~ Unless otherwise agreed in a custom licensing agreement, no part of the   ~
+  ~ prizm software, including this file, may be copied, modified, propagated,   ~
+  ~ or distributed except according to the terms contained in the LICENSE.txt ~
+  ~ file.                                                                     ~
+  ~                                                                           ~
+  ~ Removal or modification of this copyright notice is prohibited.           ~
+  ~                                                                           ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<header class="header">
+
+    <span id="logo">
+        <a href="#" class="logo" data-page="dashboard">
+            <img src="img/prizm_logo_small.png"/>
+        </a>
+    </span>
+
+    <nav class="navbar navbar-static-top" role="navigation">
+      <div id="offcanvas_toggle_holder" style="left:270px;">
+        <a href="#" class="navbar-btn sidebar-toggle" id="offcanvas_toggle" role="button" >
+            <i class="fa fa-bars fa-lg"></i>
+        </a>
+      </div>
+        <div id="header_right" class="navbar-right">
+
+          <ul class="nav navbar-nav sends" style="">
+            <li style="border-top:0px;"><a href="#" data-page="peers" id="connected_indicator" class="connected goto-page" style="display:none;font-size:13px;" data-toggle="tooltip" data-placement="top" title="CONNECTION" data-i18n="[title]server_connection_status">
+              <i class="fa fa-circle" style="font-size:12px;"></i> <span data-18n="connected">Connected</span>
+            </a>
+          </li>
+          <li style="border-top:0px;">
+            <a href="#" id="forging_indicator" class="forging" data-toggle="tooltip" title="" data-placement="bottom" style="display:none;font-size:13px;">
+                <i class="fa fa-circle" style="font-size:12px;"></i> <span data-18n="forging">Forging</span>
+            </a>
+          </li>
+        </ul>
+
+            <ul class="nav navbar-nav sends" style="">
+
+                <li id="header_send_money" class="dropdown" style="border-top:0px;"><a href="#" data-toggle="modal" data-target="#send_money_modal" data-i18n="send_prizm">Send PRIZM</a></li>
+
+                <li id="header_send_message" class="dropdown" style="border-top:0px;"><a href="#" data-toggle="modal" data-target="#send_message_modal" data-i18n="send_message">Send Message</a></li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
