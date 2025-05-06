@@ -65,7 +65,7 @@ public final class GetPeers extends APIServlet.APIRequestHandler {
         } else {
             state = null;
         }
-        if(System.currentTimeMillis()-prinuditelnyintervaloprosa>_lasttimeGetPeers && _responseGetPeers!=null &&_active==active && _state.equals(state)){
+        if(System.currentTimeMillis()-prinuditelnyintervaloprosa>_lasttimeGetPeers && _responseGetPeers!=null &&_active==active && _state==state){
             return _responseGetPeers;
         }
         _active=active;
