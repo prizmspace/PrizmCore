@@ -1,5 +1,4 @@
 # PrizmCore.v.1.10.4.7
-PrizmCore new version 1.10.4.7
 
 What is Prizm?
 -------------
@@ -33,11 +32,11 @@ Hash: MD5
 
 If you would like to validate that the binaries you download are exactly the same as those provided and built by the Prizm team, then you can compare your binaries to the following md5 hashes:
 
-* Prizm Core [Windows](https://tech.prizm.vip/files/prizm-dist-1.10.4.7-win.exe) 2C2B362D16AD79FA45396F754CC7AAD2
-* Prizm Core [Linux](https://tech.prizm.vip/files/prizm-dist-1.10.4.7-linux.zip) 5AB603C6FFF742156678B1E3CF5F1918
+* Prizm Core [Windows](https://tech.prizm.vip/files/prizm-dist-1.10.4.7-win.exe) 4A63B93A590F031C9C1330603C278DA7
+* Prizm Core [Linux](https://tech.prizm.vip/files/prizm-dist-1.10.4.7-linux.zip) 1A97D1F5D6A3EADAAD09C69DE1099E17
 
 
-* [PrizmEngine 1.10.4.7](https://tech.prizm.vip/files/PrizmEngine.jar) B5CD1C417D5BE602E0EB4D064EB02E7B
+* [PrizmEngine 1.10.4.7](https://tech.prizm.vip/files/PrizmEngine.jar) 1D4125AC7E268534E5F57C6D55D85064
 
 
 ### Precompiled distribution of the Prizm node mod
