@@ -65,7 +65,7 @@ Prizm node mod is a modified fronted part of the node. It is writen on JS used r
 
 ### Other Resources
 
-* Official blockchain snapshot. Height:3482435 | 3.05.25  [.zip](https://tech.prizm.vip/files/prizm_db_3482435H.zip)
+* Official blockchain snapshot. Height:3698700 | 9.10.25  [.zip](https://tech.prizm.vip/files/prizm_db_3698700H.zip)
 
 ### Java 21 Zulu 
 * Java 21 JRE+FX Windows [Download .MSI](https://tech.prizm.vip/files/zulu21.42.19-ca-fx-jre21.0.7-win_x64.msi)
