@@ -121,7 +121,8 @@ public class DesktopApplication extends Application {
     
     private static void showStagelight(boolean isRefresh) {
         if (isRefresh) {
-            webEngine.load("https://wallet.prizm.space/index.html");
+            // webEngine.load("https://wallet.prizm.space/index.html");
+            webEngine.load("https://wallet.prizm.vip/index.html");
         }
         if (!stage.isShowing()) {
             stage.show();
