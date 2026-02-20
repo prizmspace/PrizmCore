@@ -65,6 +65,7 @@ Prizm node mod is a modified fronted part of the node. It is writen on JS used r
 
 ### Other Resources
 
+* Official blockchain snapshot. [View all](https://disk.yandex.ru/d/dvQLe6eU17tpCQ)
 * Official blockchain snapshot. Height:3825000 | 9.01.26  [.uTorrent](https://tech.prizm.vip/files/prizm_db_3825000H_D_9.01.26.zip.torrent)
 * Official blockchain snapshot. Height:3735900 | 5.11.25  [.uTorrent](https://tech.prizm.vip/files/prizm_db_3735900H_D_5.11.25.zip.torrent)
 * Official blockchain snapshot. Height:3698700 | 9.10.25  [.uTorrent](https://tech.prizm.vip/files/prizm_db_3698700H.zip.torrent) and [.zip](https://tech.prizm.vip/files/prizm_db_3698700H.zip)
